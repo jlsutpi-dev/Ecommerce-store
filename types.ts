@@ -24,7 +24,7 @@ export interface Product {
 export interface Color {
   id: string;
   name: string;
-  value: string;
+  value: string; 
 }
 export interface Size {
   id: string;
