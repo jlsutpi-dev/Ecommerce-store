@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import Button from "@/components/ui/button";
 
 const NavbarActions = () => {
-  const [isMounted, setIsMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
   useEffect(() => {
     setIsMounted(true);
   }, []);

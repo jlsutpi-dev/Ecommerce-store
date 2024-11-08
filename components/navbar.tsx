@@ -2,14 +2,14 @@
 
 import Link from "next/link";
 
-import { getCategory } from "@/actions/get-categories";
+import { getCategories } from "@/actions/get-categories";
 
 import MainNav from "@/components/main-nav";
 import NavbarActions from "@/components/navbar-actions";
 import Container from "@/components/ui/container";
 
 const Navbar = async () => {
-  const categories = await getCategory();
+  const categories = await getCategories();
 
   return (
     <div className="border-b">

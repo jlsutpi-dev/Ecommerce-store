@@ -14,7 +14,10 @@ const ProductList = ({ title, items }: ProductListProps) => {
       {items.length === 0 && <NoResults />}
       <div className=" gird grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {items.map((item) => (
-          <ProductCard key={item.id} item={item} />
+          <div className="w-[80%] sm:w-[80%] lg:w-[25%]" key={item.id}>
+            {" "}
+            <ProductCard item={item} />
+          </div>
         ))}
       </div>
     </div>
