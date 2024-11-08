@@ -1,37 +1,37 @@
-export interface Billboard {
+export interface BillboardType {
   id: string;
   label: string;
   imageUrl: string;
 }
 
-export interface Category {
+export interface CategoryType {
   id: string;
   name: string;
-  billboard: Billboard;
+  billboard: BillboardType;
 }
 
-export interface Product {
+export interface ProductType {
   id: string;
   name: string;
-  category: Category;
+  category: CategoryType;
   price: string;
   isFeatured: boolean;
-  size: Size;
-  color: Color;
-  images: Image[];
+  size: SizeType;
+  color: ColorType;
+  images: ImageType[];
 }
 
-export interface Color {
-  id: string;
-  name: string;
-  value: string; 
-}
-export interface Size {
+export interface ColorType {
   id: string;
   name: string;
   value: string;
 }
-export interface Image {
+export interface SizeType {
+  id: string;
+  name: string;
+  value: string;
+}
+export interface ImageType {
   id: string;
   url: string;
 }

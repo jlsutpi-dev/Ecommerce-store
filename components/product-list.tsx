@@ -1,11 +1,11 @@
-import { Product } from "@/types";
+import { ProductType } from "@/types";
 
 import NoResults from "@/components/ui/no-results";
 import ProductCard from "@/components/ui/product-card";
 
 interface ProductListProps {
   title: string;
-  items: Product[];
+  items: ProductType[];
 }
 const ProductList = ({ title, items }: ProductListProps) => {
   return (

@@ -1,15 +1,16 @@
 "use client";
 
-import { Product } from "@/types";
 import { Expand, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+
+import { ProductType } from "@/types";
 
 import Currency from "@/components/ui/currency";
 import IconButton from "@/components/ui/icon-button";
 
 interface ProductProps {
-  item: Product;
+  item: ProductType;
 }
 
 const ProductCard = ({ item }: ProductProps) => {

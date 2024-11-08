@@ -1,12 +1,12 @@
 "use client";
 
 import { cn } from "@/libs/utils";
-import { Category } from "@/types";
+import { CategoryType } from "@/types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 interface MainNavProps {
-  data: Category[];
+  data: CategoryType[];
 }
 
 const MainNav = ({ data }: MainNavProps) => {
