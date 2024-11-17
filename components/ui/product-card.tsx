@@ -8,6 +8,7 @@ import { ProductType } from "@/types";
 
 import Currency from "@/components/ui/currency";
 import IconButton from "@/components/ui/icon-button";
+import useCart from "@/hooks/use-card";
 import userPreviewModal from "@/hooks/use-preview-modal";
 import { MouseEventHandler } from "react";
 
@@ -17,6 +18,7 @@ interface ProductProps {
 
 const ProductCard = ({ item }: ProductProps) => {
   const router = useRouter();
+  const cart = useCart();
   const handleClick = () => {
     router.push(`/products/${item.id}`);
   };
@@ -24,8 +26,18 @@ const ProductCard = ({ item }: ProductProps) => {
 
   const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.stopPropagation();
+
     previewModal.onOpen(item);
   };
+
+  const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
+    event.stopPropagation();
+    cart.addItem(item);
+  };
+
+  const truncatedTitle =
+    item.name.length > 10 ? item.name.slice(0, 10) + "..." : item.name;
+
   return (
     <div
       onClick={handleClick}
@@ -46,14 +58,14 @@ const ProductCard = ({ item }: ProductProps) => {
               icon={<Expand size={20} className=" text-gray-600" />}
             />
             <IconButton
-              onClick={() => {}}
+              onClick={onAddToCart}
               icon={<ShoppingCart size={20} className=" text-gray-600" />}
             />
           </div>
         </div>
       </div>
       <div>
-        <p className=" text-lg font-semibold"> {item.name}</p>
+        <p className=" text-lg font-semibold"> {truncatedTitle}</p>
         <p className=" text-sm  text-gray-500"> {item.category.name}</p>
       </div>
       <div className=" flex items-center justify-between">

@@ -16,16 +16,21 @@ interface CategoryPageProps {
     sizeId: string;
   };
 }
+
 const CategoryPage = async ({ params, searchParams }: CategoryPageProps) => {
+  const { categoryId } = await Promise.resolve(params);
+  const { colorId, sizeId } = await Promise.resolve(searchParams);
+
   const products = await getProducts({
-    categoryId: params.categoryId,
-    colorId: searchParams.colorId,
-    sizeId: searchParams.sizeId,
+    categoryId,
+    colorId,
+    sizeId,
   });
 
   const sizes = await getSizes();
   const colors = await getColors();
-  const category = await getCategory(params.categoryId);
+  const category = await getCategory(categoryId);
+
   return (
     <div className=" bg-white ">
       <Container>
